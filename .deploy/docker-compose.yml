@@ -1,0 +1,14 @@
+services:
+  digital-library-app:
+    build:
+      context: ..
+      dockerfile: .deploy/Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - reports:/app/reports
+    environment:
+      - NODE_ENV=development
+
+volumes:
+  reports:
