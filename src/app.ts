@@ -3,7 +3,6 @@ import bodyParser from 'body-parser';
 import bookRoutes from './routes/bookRoutes';
 import authorRoutes from './routes/authorRoutes';
 import userRoutes from './routes/userRoutes';
-import "reflect-metadata";
 
 const app = express();
 app.use(bodyParser.json());

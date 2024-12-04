@@ -48,4 +48,5 @@ temp/
 tmp/
 *.tmp
 
-# Opti
+# Optional folders
+reports/
