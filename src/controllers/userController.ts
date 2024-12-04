@@ -1,23 +1,28 @@
 import { Request, Response } from 'express';
-import { User } from '../types/User';
+import { User, UserDto } from '../types/User';
+import { toUserDto, toUserDtoArray } from '../util/user.mapper';
 
 
 const users: User[] = [];
 
-export const getAllUsers = (req: Request, res: Response): void => {
-  res.json(users);
+export const getAllUsers = (req: Request, res: Response) => {
+  res.json(toUserDtoArray(users)); 
 };
 
-export const getUserById = (req: Request, res: Response): void => {
-  const user = users.find((u) => u.id === req.params.id);
+export const getUserById = (req: Request, res: Response) => {
+  const id: number = Number(req.params.id); 
+  if (isNaN(id)) {
+      return res.status(400).send("Invalid ID format");
+  }
+  const user = users.find((u) => u.id === id);
   if (!user) {
     res.status(404).send('User not found.');
     return;
   }
-  res.json(user);
+  res.json(toUserDto(user));
 };
 
-export const createUser = (req: Request, res: Response): void => {
+export const createUser = (req: Request, res: Response) => {
   const { id, username, name, lastName, password } = req.body as User;
 
   if (!id || !username || !name || !lastName || !password) {
@@ -29,9 +34,13 @@ export const createUser = (req: Request, res: Response): void => {
   res.status(201).send('User created successfully.');
 };
 
-export const updateUser = (req: Request, res: Response): void => {
+export const updateUser = (req: Request, res: Response) => {
+  const id: number = Number(req.params.id); // Konverzija u broj
+  if (isNaN(id)) {
+      return res.status(400).send("Invalid ID format");
+  }
   const { username, name, lastName, password } = req.body;
-  const user = users.find((u) => u.id === req.params.id);
+  const user = users.find((u) => u.id === id);
 
   if (!user) {
     res.status(404).send('User not found.');
@@ -46,8 +55,12 @@ export const updateUser = (req: Request, res: Response): void => {
   res.send('User updated successfully.');
 };
 
-export const deleteUser = (req: Request, res: Response): void => {
-  const index = users.findIndex((u) => u.id === req.params.id);
+export const deleteUser = (req: Request, res: Response) => {
+  const id: number = Number(req.params.id); 
+  if (isNaN(id)) {
+      return res.status(400).send("Invalid ID format");
+  }
+  const index = users.findIndex((u) => u.id === id);
   if (index === -1) {
     res.status(404).send('User not found.');
     return;

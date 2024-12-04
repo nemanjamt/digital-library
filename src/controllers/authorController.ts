@@ -2,14 +2,21 @@ import { Request, Response } from 'express';
 import { Author } from '../types/Author';
 
 
-const authors: Author[] = []; 
+export const authors: Author[] = []; 
 
 export const getAllAuthors = (req: Request, res: Response): void => {
   res.json(authors);
 };
 
 export const getAuthorById = (req: Request, res: Response): void => {
-  const author = authors.find((a) => a.id === req.params.id);
+  const id = Number(req.params.id); 
+
+  if (isNaN(id)) {
+    res.status(400).send('Invalid ID format. ID must be a number.');
+    return;
+  }
+
+  const author = authors.find((a) => a.id === id);
   if (!author) {
     res.status(404).send('Author not found.');
     return;
@@ -18,8 +25,8 @@ export const getAuthorById = (req: Request, res: Response): void => {
 };
 
 export const createAuthor = (req: Request, res: Response): void => {
-  const { id, name, lastName } = req.body as Author;
-
+  const { name, lastName } = req.body as Author;
+  const id = authors.length + 1;
   if (!id || !name || !lastName) {
     res.status(400).send('All fields are required.');
     return;
@@ -31,7 +38,13 @@ export const createAuthor = (req: Request, res: Response): void => {
 
 export const updateAuthor = (req: Request, res: Response): void => {
   const { name, lastName } = req.body;
-  const author = authors.find((a) => a.id === req.params.id);
+  const id = Number(req.params.id); 
+
+  if (isNaN(id)) {
+    res.status(400).send('Invalid ID format. ID must be a number.');
+    return;
+  }
+  const author = authors.find((a) => a.id === id);
 
   if (!author) {
     res.status(404).send('Author not found.');
@@ -45,7 +58,14 @@ export const updateAuthor = (req: Request, res: Response): void => {
 };
 
 export const deleteAuthor = (req: Request, res: Response): void => {
-  const index = authors.findIndex((a) => a.id === req.params.id);
+  const id = Number(req.params.id);
+
+  if (isNaN(id)) {
+    res.status(400).send('Invalid ID format. ID must be a number.');
+    return;
+  }
+
+  const index = authors.findIndex((a) => a.id === id);
   if (index === -1) {
     res.status(404).send('Author not found.');
     return;
