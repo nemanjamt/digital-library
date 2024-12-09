@@ -11,21 +11,14 @@ services:
       - ../:/app
 
   zap:
-    image: owasp/zap2docker-stable
+    image: zaproxy/zap-stable
     container_name: zap
     depends_on:
-      - nodejs-api
+      - digital-library-app
     volumes:
-      - ./zap:/zap/wrk:rw # Store ZAP reports locally
+      - ../.zap:/zap/wrk:rw # Store ZAP data locally
+      - ../.zap/reports:/zap/wrk/reports:rw # Store ZAP reports locally
     entrypoint: >
-      sh -c "
-      zap.sh -daemon -host 0.0.0.0 -port 8080 && 
-      sleep 15 && 
-      curl -s 'http://localhost:8080/JSON/openapi/action/importUrl/?url=http://digital-library-app:3000/openapi.json' &&
-      curl -s 'http://localhost:8080/JSON/ascan/action/scan/?url=http://digital-library-app:3000&recurse=true' &&
-      sleep 60 && 
-      curl -s 'http://localhost:8080/OTHER/core/other/htmlreport/' -o /zap/wrk/zap_report.html &&
-      zap.sh -shutdown
-      "
+      sh -c "chmod +x /zap/wrk/start-zap.sh && /zap/wrk/start-zap.sh"
     ports:
       - "8080:8080" # ZAP API and web interface
