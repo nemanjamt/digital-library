@@ -5,10 +5,27 @@ services:
       dockerfile: .deploy/Dockerfile
     ports:
       - "3000:3000"
-    volumes:
-      - reports:/app/reports
     environment:
       - NODE_ENV=development
+    volumes:
+      - ../:/app
 
-volumes:
-  reports:
+  zap:
+    image: owasp/zap2docker-stable
+    container_name: zap
+    depends_on:
+      - nodejs-api
+    volumes:
+      - ./zap:/zap/wrk:rw # Store ZAP reports locally
+    entrypoint: >
+      sh -c "
+      zap.sh -daemon -host 0.0.0.0 -port 8080 && 
+      sleep 15 && 
+      curl -s 'http://localhost:8080/JSON/openapi/action/importUrl/?url=http://digital-library-app:3000/openapi.json' &&
+      curl -s 'http://localhost:8080/JSON/ascan/action/scan/?url=http://digital-library-app:3000&recurse=true' &&
+      sleep 60 && 
+      curl -s 'http://localhost:8080/OTHER/core/other/htmlreport/' -o /zap/wrk/zap_report.html &&
+      zap.sh -shutdown
+      "
+    ports:
+      - "8080:8080" # ZAP API and web interface

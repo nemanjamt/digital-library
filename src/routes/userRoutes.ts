@@ -1,18 +1,19 @@
 import { Router } from 'express';
 import {
-  getAllAuthors,
-  getAuthorById,
-  createAuthor,
-  updateAuthor,
-  deleteAuthor,
-} from '../controllers/authorController';
+  getAllUsers,
+  getUserById,
+  createUser,
+  updateUser,
+  deleteUser,
+} from '../controllers/userController';
+import { validateUserId, validateUserData } from '../middlewares/userValidation';
 
 const router = Router();
 
-router.get('/', getAllAuthors); 
-router.get('/:id', getAuthorById); 
-router.post('/', createAuthor); 
-router.put('/:id', updateAuthor); 
-router.delete('/:id', deleteAuthor); 
+router.get('/', getAllUsers);
+router.get('/:id', validateUserId, getUserById);
+router.post('/', validateUserData, createUser);
+router.put('/:id', validateUserId, validateUserData, updateUser);
+router.delete('/:id', validateUserId, deleteUser);
 
 export default router;
