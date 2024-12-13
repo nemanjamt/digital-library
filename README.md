@@ -12,7 +12,7 @@ After starting Docker Compose and completing the pipeline, the message in the co
 We can visit address http://localhost:9000 in browser with credentials <br>
 username: admin <br>
 password: admin <br>
-and then change default password
+and then change default password <br>
 After that we can visit http://localhost:9000/dashboard?id=digital-library 
 ![image](https://github.com/user-attachments/assets/fec193d6-3036-48f3-8f50-d80d36a09e41)
 
