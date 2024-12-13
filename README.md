@@ -22,5 +22,6 @@ Details about code smells<br><br>
 ![image](https://github.com/user-attachments/assets/bfaabb82-ef2f-4c0d-9a77-4be87f9a1310)
 
 
-![image](https://github.com/user-attachments/assets/9a3b781f-3c88-4741-83cf-f99a27dfbf4b)
+
+![image](https://github.com/user-attachments/assets/4c5abbe1-96d9-4afc-9bf5-86e8bb6dbc35)
 
