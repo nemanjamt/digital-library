@@ -13,7 +13,8 @@ We can visit address http://localhost:9000 in browser with credentials <br>
 username: admin <br>
 password: admin <br>
 and then change default password <br> <br>
-After that we can visit http://localhost:9000/dashboard?id=digital-library 
+After that we can visit http://localhost:9000/dashboard?id=digital-library for overview of scan or <br>
+use API GET request with credentials on path http://localhost:9000/api/measures/component?component=digital-libraryt&metricKeys=ncloc,complexity,coverage,bugs,vulnerabilities,code_smells
 <br><br>
 The following image presents an overview of the analysis report <br>
 ![image](https://github.com/user-attachments/assets/fec193d6-3036-48f3-8f50-d80d36a09e41)
