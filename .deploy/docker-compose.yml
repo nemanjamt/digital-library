@@ -72,8 +72,6 @@ services:
       - sonarnet
     environment:
       - SONAR_HOST_URL=http://sonarqube:9000
-      - SONAR_LOGIN=admin
-      - SONAR_PASSWORD=admin
     volumes:
       - ./generate-token.sh:/usr/local/bin/generate-token.sh
     entrypoint: ["/bin/bash", "-c", "/usr/src/.sonar/generate-token.sh && export SONAR_TOKEN=$(cat /usr/src/sonar_token.txt) && sonar-scanner"]
