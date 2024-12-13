@@ -27,3 +27,6 @@ Details about code smells<br>
 Details about security hotspots<br>
 ![image](https://github.com/user-attachments/assets/4c5abbe1-96d9-4afc-9bf5-86e8bb6dbc35)
 
+<br><br><br>
+API response <br>
+![image](https://github.com/user-attachments/assets/67b148ff-a7f5-4865-a682-45ca6d55f1b1)
