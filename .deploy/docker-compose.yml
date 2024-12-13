@@ -22,3 +22,71 @@ services:
       sh -c "chmod +x /zap/wrk/start-zap.sh && /zap/wrk/start-zap.sh"
     ports:
       - "8080:8080" # ZAP API and web interface
+
+  sonarqube:
+    container_name: sonarqube
+    image: sonarqube:lts-community
+    depends_on:
+      - sonar_db
+    environment:
+      SONAR_JDBC_URL: jdbc:postgresql://sonar_db:5432/sonar
+      SONAR_JDBC_USERNAME: sonar
+      SONAR_JDBC_PASSWORD: sonar
+    ports:
+      - "9000:9000"
+    networks:
+      - sonarnet
+    volumes:
+      - sonarqube_conf:/opt/sonarqube/conf
+      - sonarqube_data:/opt/sonarqube/data
+      - sonarqube_extensions:/opt/sonarqube/extensions
+      - sonarqube_logs:/opt/sonarqube/logs
+      - sonarqube_temp:/opt/sonarqube/temp
+    healthcheck:
+      test: ["CMD", "wget", "--method=GET","http://localhost:9000/api/server/version", "-O", "-"]
+      interval: 30s
+      timeout: 15s
+      retries: 10
+
+  sonar_db:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: sonar
+      POSTGRES_PASSWORD: sonar
+      POSTGRES_DB: sonar
+    networks:
+      - sonarnet
+    volumes:
+      - sonar_db:/var/lib/postgresql
+      - sonar_db_data:/var/lib/postgresql/data
+  
+  sonarscanner:
+    container_name: sonarscanner
+    build:
+      context: ..
+      dockerfile: .sonar/Dockerfile-sonarscanner
+    depends_on:
+      sonarqube:
+        condition: service_healthy
+    networks:
+      - sonarnet
+    environment:
+      - SONAR_HOST_URL=http://sonarqube:9000
+      - SONAR_LOGIN=admin
+      - SONAR_PASSWORD=admin
+    volumes:
+      - ./generate-token.sh:/usr/local/bin/generate-token.sh
+    entrypoint: ["/bin/bash", "-c", "/usr/src/.sonar/generate-token.sh && export SONAR_TOKEN=$(cat /usr/src/sonar_token.txt) && sonar-scanner"]
+    # entrypoint: ["/bin/bash", "-c", "tail -f /dev/null"]
+
+networks:
+  sonarnet:
+
+volumes:
+  sonarqube_conf:
+  sonarqube_data:
+  sonarqube_extensions:
+  sonarqube_logs:
+  sonarqube_temp:
+  sonar_db:
+  sonar_db_data:

@@ -1,0 +1,9 @@
+FROM sonarsource/sonarqube-scan:3.1.0
+
+COPY . /usr/src
+
+WORKDIR /usr/src
+
+RUN ls -la /usr/src
+
+ENTRYPOINT ["/bin/bash"]

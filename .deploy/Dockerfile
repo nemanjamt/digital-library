@@ -11,4 +11,5 @@ RUN mkdir -p /app/reports && npx tsc
 
 EXPOSE 3000
 
-CMD ["node", "build/app.js"]
+# CMD ["node", "build/app.js"]
+CMD ["/bin/bash", "-c", "tail -f /dev/null"]
