@@ -30,3 +30,9 @@ Details about security hotspots<br>
 <br><br><br>
 API response <br>
 ![image](https://github.com/user-attachments/assets/67b148ff-a7f5-4865-a682-45ca6d55f1b1)
+<br><br><br>
+
+### ZAP <br>
+ZAP is run automatically when the API is started in docker container and it generates report after the scan in HTML format like on following image <br>
+![image](https://github.com/user-attachments/assets/0794d236-5ba3-4cf0-9d25-7786de35f242)
+
