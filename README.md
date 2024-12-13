@@ -15,7 +15,7 @@ password: admin <br>
 and then change default password <br> <br>
 After that we can visit http://localhost:9000/dashboard?id=digital-library 
 <br><br>
-The following image presents an overview of the analysis report
+The following image presents an overview of the analysis report <br>
 ![image](https://github.com/user-attachments/assets/fec193d6-3036-48f3-8f50-d80d36a09e41)
 
 
