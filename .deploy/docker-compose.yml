@@ -7,21 +7,29 @@ services:
       - "3000:3000"
     environment:
       - NODE_ENV=development
-    volumes:
-      - ../:/app
 
-  zap:
+  zap-api-scan:
     image: zaproxy/zap-stable
-    container_name: zap
+    container_name: zap-api-scan
     depends_on:
       - digital-library-app
     volumes:
-      - ../.zap:/zap/wrk:rw # Store ZAP data locally
-      - ../.zap/reports:/zap/wrk/reports:rw # Store ZAP reports locally
+      - .zap/api-scan:/zap/wrk:rw # Store ZAP data locally
     entrypoint: >
-      sh -c "chmod +x /zap/wrk/start-zap.sh && /zap/wrk/start-zap.sh"
+      sh /zap/wrk/start-api-zap.sh
     ports:
       - "8080:8080" # ZAP API and web interface
+  zap-full-scan:
+    image: zaproxy/zap-stable
+    container_name: zap-full-scan
+    depends_on:
+      - digital-library-app
+    volumes:
+      - .zap/full-scan:/zap/wrk:rw # Store ZAP data locally
+    entrypoint: >
+      sh /zap/wrk/start-full-zap.sh
+    ports:
+      - "8081:8081" # ZAP API and web interface
 
   sonarqube:
     container_name: sonarqube

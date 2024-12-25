@@ -5,9 +5,10 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm ci
 
-COPY . .
+COPY tsconfig.json ./
+COPY src/ ./src/
 
-RUN mkdir -p /app/reports && npx tsc
+RUN npx tsc
 
 EXPOSE 3000
 
