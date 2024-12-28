@@ -85,6 +85,30 @@ services:
     entrypoint: ["/bin/bash", "-c", "/usr/src/.sonar/generate-token.sh && export SONAR_TOKEN=$(cat /usr/src/sonar_token.txt) && sonar-scanner"]
     # entrypoint: ["/bin/bash", "-c", "tail -f /dev/null"]
 
+  build-sign:
+    image: node:18
+    container_name: build_sign_service
+    working_dir: /app
+    volumes:
+      - ..:/app
+    environment:
+      GPG_NAME: DefaultName
+      GPG_EMAIL: example@domain.com
+      GPG_PASSPHRASE: "your-passphrase"
+      SERVICE_NAME: "digital-library-1.0.0"
+    # command: > 
+    #   tail -f /dev/null
+    command: >
+      bash -c "
+        ./.signing/setup-gpg.sh &&
+        npm install &&
+        npm run build &&
+        npm pack &&
+        gpg --batch --yes --passphrase $GPG_PASSPHRASE --detach-sign --output digital-library-1.0.0.tgz.sig digital-library-1.0.0.tgz &&
+        ./.signing/verify-signature.sh digital-library-1.0.0.tgz digital-library-1.0.0.tgz.sig
+      "
+
+
 networks:
   sonarnet:
 
