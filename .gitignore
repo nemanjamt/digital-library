@@ -49,5 +49,5 @@ tmp/
 *.tmp
 
 # Optional folders
-reports/
+**/reports/*.html
 .done
