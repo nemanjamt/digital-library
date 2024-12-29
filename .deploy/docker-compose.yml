@@ -81,9 +81,23 @@ services:
     environment:
       - SONAR_HOST_URL=http://sonarqube:9000
     volumes:
-      - ./generate-token.sh:/usr/local/bin/generate-token.sh
-    entrypoint: ["/bin/bash", "-c", "/usr/src/.sonar/generate-token.sh && export SONAR_TOKEN=$(cat /usr/src/sonar_token.txt) && sonar-scanner"]
+      - ../.done:/.done
+    entrypoint: ["/bin/bash", "-c", "/usr/src/.sonar/generate-token.sh && export SONAR_TOKEN=$(cat /usr/src/sonar_token.txt) && sonar-scanner && touch /.done/sonarscanner.done"]
     # entrypoint: ["/bin/bash", "-c", "tail -f /dev/null"]
+  
+  report-generate:
+    container_name: report-general
+    build:
+      context: ..
+      dockerfile: .report/Dockerfile
+    networks:
+      - sonarnet
+    volumes:
+      - ../.report/general-report:/app/reports
+      - ../.done:/.done
+    # entrypoint: ["/bin/bash", "-c", "tail -f /dev/null"]
+    entrypoint: ["/bin/bash", "-c", "rm -f /.done/sonarscanner.done && while [ ! -f /.done/sonarscanner.done ]; do echo 'Waiting for sonarscanner to finish...'; sleep 5; done; echo 'Starting report generation...' ; sleep 20 && python .report/generate-report.py"]
+    
 
 networks:
   sonarnet:

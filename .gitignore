@@ -50,3 +50,4 @@ tmp/
 
 # Optional folders
 reports/
+.done
