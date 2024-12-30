@@ -94,10 +94,23 @@ services:
       - sonarnet
     volumes:
       - ../.report/general-report:/app/reports
+      - ../.deploy/.zap/api-scan:/app/api-scan
+      - ../.deploy/.zap/full-scan:/app/full-scan
+      - ../.dependency-check/reports/:/app/dependency-check
       - ../.done:/.done
     # entrypoint: ["/bin/bash", "-c", "tail -f /dev/null"]
-    entrypoint: ["/bin/bash", "-c", "rm -f /.done/sonarscanner.done && while [ ! -f /.done/sonarscanner.done ]; do echo 'Waiting for sonarscanner to finish...'; sleep 5; done; echo 'Starting report generation...' ; sleep 20 && python .report/generate-report.py"]
-    
+    entrypoint: ["/bin/bash", "-c", "rm -f /.done/sonarscanner.done && while [[ ! -f /.done/sonarscanner.done || ! -f /.done/dependency-scan.done ]]; do echo 'Waiting for sonarscanner to finish...'; sleep 5; done; echo 'Starting report generation...' ; sleep 20 && python .report/generate-report2.py"]
+  
+  owasp-dependency-check:
+    container_name: owasp-dependency-check
+    build:
+      context: ..
+      dockerfile: .dependency-check/Dockerfile
+    volumes:
+      - ../:/src                   
+      - ../.dependency-check/reports:/reports       
+      - ../.done:/.done
+    entrypoint: ["/bin/sh", "-c", "rm -f /.done/dependency-check.done && /usr/share/dependency-check/bin/dependency-check.sh --project DIGITAL_LIBRARY_PROJECT --scan /src --format ALL --out /reports --nvdApiKey 19f22f54-88f6-4486-929d-95eabb568898 && touch /.done/dependency-scan.done"] 
 
   build-sign:
     image: node:18
