@@ -2,22 +2,22 @@
 
 ## 📂 Documentation Structure
 
-📁 [.docs](https://github.com/nemanjamt/digital-library/tree/main/.docs)  
-├── [Zap api scan example.html](https://github.com/nemanjamt/digital-library/blob/main/.docs/Zap%20api%20scan%20example.html)  
-├── [Zap full scan example.html](https://github.com/nemanjamt/digital-library/blob/main/.docs/Zap%20full%20scan%20example.html)  
+📁 [.docs](https://github.com/nemanjamt/digital-library/tree/master/.docs)  
+├── [Zap api scan example.html](https://github.com/nemanjamt/digital-library/blob/master/.docs/Zap%20api%20scan%20example.html)  
+├── [Zap full scan example.html](https://github.com/nemanjamt/digital-library/blob/master/.docs/Zap%20full%20scan%20example.html)  
 ├── GPG Application signing.md  
-│   ├── [🇬🇧 English version](https://github.com/nemanjamt/digital-library/blob/main/.docs/GPG%20Application%20signing.md#-english)  
-│   └── [🇷🇸 Srpska verzija](https://github.com/nemanjamt/digital-library/blob/main/.docs/GPG%20Application%20signing.md#-srpski)  
+│   ├── [🇬🇧 English version](https://github.com/nemanjamt/digital-library/blob/master/.docs/GPG%20Application%20signing.md#-english)  
+│   └── [🇷🇸 Srpska verzija](https://github.com/nemanjamt/digital-library/blob/master/.docs/GPG%20Application%20signing.md#-srpski)  
 ├── OWASP Dependecy check.md  
-│   ├── [🇬🇧 English version](https://github.com/nemanjamt/digital-library/blob/main/.docs/OWASP%20Dependecy%20check.md#-english)  
-│   └── [🇷🇸 Srpska verzija](https://github.com/nemanjamt/digital-library/blob/main/.docs/OWASP%20Dependecy%20check.md#-srpski)  
+│   ├── [🇬🇧 English version](https://github.com/nemanjamt/digital-library/blob/master/.docs/OWASP%20Dependecy%20check.md#-english)  
+│   └── [🇷🇸 Srpska verzija](https://github.com/nemanjamt/digital-library/blob/master/.docs/OWASP%20Dependecy%20check.md#-srpski)  
 ├── OWASP Zap.md  
-│   ├── [🇬🇧 English version](https://github.com/nemanjamt/digital-library/blob/main/.docs/OWASP%20Zap.md#-english)  
-│   └── [🇷🇸 Srpska verzija](https://github.com/nemanjamt/digital-library/blob/main/.docs/OWASP%20Zap.md#-srpski)  
-├── [README.md](https://github.com/nemanjamt/digital-library/blob/main/.docs/README.md)  
+│   ├── [🇬🇧 English version](https://github.com/nemanjamt/digital-library/blob/master/.docs/OWASP%20Zap.md#-english)  
+│   └── [🇷🇸 Srpska verzija](https://github.com/nemanjamt/digital-library/blob/master/.docs/OWASP%20Zap.md#-srpski)  
+├── [README.md](https://github.com/nemanjamt/digital-library/blob/master/.docs/README.md)  
 └── SonarQube.md  
-    ├── [🇬🇧 English version](https://github.com/nemanjamt/digital-library/blob/main/.docs/SonarQube.md#-english)  
-    └── [🇷🇸 Srpska verzija](https://github.com/nemanjamt/digital-library/blob/main/.docs/SonarQube.md#-srpski)
+    ├── [🇬🇧 English version](https://github.com/nemanjamt/digital-library/blob/master/.docs/SonarQube.md#-english)  
+    └── [🇷🇸 Srpska verzija](https://github.com/nemanjamt/digital-library/blob/master/.docs/SonarQube.md#-srpski)
 
 
 > 📄 Each pipeline stage is documented in its own file. Click the links above to explore each document.
