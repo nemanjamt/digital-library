@@ -110,3 +110,8 @@ echo "Package, signature and public key moved to $FINAL_REPORT_DIR"
 # Clean up
 rm -f -R "$OUTPUT_DIR"
 echo "Temporary files cleaned up."
+
+# Remove npm build artifacts
+echo "Removing npm build artifacts..."
+rm -rf node_modules
+rm -rf build
