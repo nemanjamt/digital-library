@@ -51,3 +51,10 @@ tmp/
 # Optional folders
 **/reports/*.html
 .done
+
+# Signature files
+*.sig
+
+# Miscellaneous
+.asc
+.tgz

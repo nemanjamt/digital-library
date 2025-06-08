@@ -125,15 +125,7 @@ services:
       SERVICE_NAME: "digital-library-1.0.0"
     # command: > 
     #   tail -f /dev/null
-    command: >
-      bash -c "
-        ./.signing/setup-gpg.sh &&
-        npm install &&
-        npm run build &&
-        npm pack &&
-        gpg --batch --yes --passphrase $GPG_PASSPHRASE --detach-sign --output digital-library-1.0.0.tgz.sig digital-library-1.0.0.tgz &&
-        ./.signing/verify-signature.sh digital-library-1.0.0.tgz digital-library-1.0.0.tgz.sig
-      "
+    entrypoint: ["/bin/bash", "-c", ".signing/sign.sh"]
 
 
 networks:
