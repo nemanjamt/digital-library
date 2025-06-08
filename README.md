@@ -4,6 +4,9 @@ A project intended for the university course Cyber Security
 Use following command to start application/pipeline: <br>
 docker-compose -f .deploy/docker-compose.yml up
 
+## Application documentation
+Full documentation can be found inside .docs folder, where each of the pipeline stage is described in detail.
+
 
 ### SonarQube and SonarScanner
 After starting Docker Compose and completing the pipeline, the message in the console should look like this
