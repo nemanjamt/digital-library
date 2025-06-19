@@ -81,11 +81,3 @@ Generiše HTML i JSON izveštaje.
 
 Greške se upisuju u error_full_scan.log.
 
-yaml
-Copy
-Edit
-
----
-
-Let me know if you want the same formatting for the other stages too (e.g., SonarQube, Dependency Check), or if 
-
