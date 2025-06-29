@@ -12,7 +12,7 @@ sonar-scanner \
 
 ## Opis:
 
-Pokreće analizu koda projekta radi pronalaženja slucajeva vezanih za kvalitet koda, bezbjednosne ranjivosti, bug-ova i koda koji se ponavlja.
+Pokreće analizu izvornog koda projekta radi pronalaženja slučajeva vezanih za kvalitet koda, bezbjednosnih ranjivosti, bug-ova i koda koji se ponavlja.
 
 Sonarqube je server koji hostuje web interfejs i čuva rezultate analiza.
 
@@ -24,7 +24,7 @@ Analiza se pokreće nakon što je SonarQube server dostupan.
 
 ## Logovi i Izveštaji:
 
-Rezultati analize su dostupni na SonarQube web interfejsu na portu 9000, dok konkretno za generisanje izvjestaja u nasem kodu, gadja se endpoint
+Rezultati analize su dostupni na SonarQube web interfejsu na portu 9000, dok konkretno u skripti za generisanje izvještaja , gađa se endpoint
 http://sonarqube:9000/api/hotspots/search
 
 Sonarscanner servis zapisuje status završene analize u fajl /.done/sonarscanner.done, koji služi za sinhronizaciju sa ostalim servisima.
