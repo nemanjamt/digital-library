@@ -15,7 +15,7 @@ ZAP performs:
 ### 🛡️ Threats Mitigated:
 - Injection attacks (SQL, XSS)
 
-- Broken authentication
+- Broken authentication and session control
 
 - Security misconfigurations
 
@@ -67,7 +67,7 @@ Signs the final artifact with GPG. Verifiers can confirm the origin and integrit
 
 ## 5. Final Report Generation
 ### 🧪 Description:
-Collates results from all tools into a single unified report for analysis, auditing, and traceability.
+Combines results from all tools into a single unified report for analysis, auditing, and traceability.
 
 ### 🛡️ Benefits:
 - Improved visibility of risks
@@ -83,7 +83,7 @@ Collates results from all tools into a single unified report for analysis, audit
 <a id="srpski"></a>
 
 ## 🔧 Opšti Opis
-Ovaj sigurnosni pajplajn integriše automatizovane bezbednosne provere u CI/CD tok razvoja koristeći Docker kontejnere sa specijalizovanim alatima. Svaka faza štiti aplikaciju od različitih tipova sajber pretnji tokom razvoja i distribucije softvera.
+Ovaj sigurnosni *pipeline* integriše automatizovane bezbednosne provere u CI/CD tok razvoja koristeći *Docker* kontejnere sa specijalizovanim alatima. Svaka faza štiti aplikaciju od različitih tipova sajber pretnji tokom razvoja i distribucije softvera.
 
 ## 1. Testiranje bezbednosti krajnjih tačaka (OWASP ZAP)
 ### 🧪 Opis:
@@ -91,14 +91,14 @@ ZAP vrši:
 
 - API skeniranje: testira REST/HTTP API krajnje tačke.
 
-- Puno skeniranje: skenira ceo interfejs aplikacije.
+- Puno skeniranje: skenira ceo web interfejs aplikacije.
 
 ### 🛡️ Pretnje protiv kojih štiti:
 - SQL i XSS injekcije
 
-- Pogrešna autentifikacija i sesije
+- Loše implementirana autentifikacija i kontrola sesije
 
-- Neispravne sigurnosne konfiguracije
+- Neispravne/Loše konfigurisane sigurnosne konfiguracije
 
 - Izlaganje osetljivih podataka
 
@@ -108,18 +108,18 @@ ZAP vrši:
 
 ## 2. Statička Analiza Koda (SonarQube)
 ### 🧪 Opis:
-Analizira izvorni kod i pronalazi ranjivosti, bagove i loše prakse u pisanju koda.
+Analizira izvorni kod i pronalazi ranjivosti, *code smells* i loše prakse u pisanju koda.
 
 ### 🛡️ Pretnje protiv kojih štiti:
 - Logičke greške
 
-- Hardkodovane lozinke i tajne
+- Zakucane lozinke i tajne
 
 - Upotreba nesigurnih funkcija
 
-- Prelivi bafera i trke procesa
+- Prelivi bafera i utrkivanje procesa
 
-- Nedovoljna obrada korisničkog unosa
+- Nedovoljna/Nepotpuna obrada korisničkog unosa
 
 ## 3. Skeniranje Ranljivosti u Zavistnostima (OWASP Dependency-Check)
 ### 🧪 Opis:
@@ -134,7 +134,7 @@ Skener detektuje poznate ranjivosti u biblioteka koristeći CVE bazu podataka.
 
 ## 4. Pakovanje i GPG Potpisivanje
 ### 🧪 Opis:
-Aplikacija se pakuje i digitalno potpisuje pomoću GPG ključa. Objavljuje se javni ključ i potpis radi provere integriteta.
+Aplikacija se pakuje i digitalno potpisuje pomoću *GPG* ključa. Objavljuje se javni ključ i potpis radi provere integriteta.
 
 ### 🛡️ Pretnje protiv kojih štiti:
 - Izmena fajlova u transportu

@@ -1,6 +1,6 @@
 # 🛡️ OWASP ZAP Scanning
 
-## 🇬🇧 English
+<a id="english"></a>
 
 Two types of ZAP security scans are performed to analyze vulnerabilities in the app.
 
@@ -16,13 +16,9 @@ python zap-api-scan.py \
   -g gen_file_api_scan
 ```
 
-- Targets the OpenAPI specification.
+Targets the OpenAPI specification. Produces HTML and JSON reports. Logs errors to *error_api_scan.log*.
 
-- Produces HTML and JSON reports.
-
-- Logs errors to error_api_scan.log.
-
-🌐 2. ZAP Full Scan
+## 🌐 2. ZAP Full Scan
 Command:
 
 ```bash
@@ -32,23 +28,17 @@ python zap-full-scan.py \
   -t http://digital-library-app:3000/ \
   -g gen_file_full_scan
 ```
-Crawls and analyzes the full app endpoint.
+Crawls and analyzes the full app endpoint. Generates HTML and JSON reports. Logs errors to *error_full_scan.log*.
 
-Generates HTML and JSON reports.
-
-Logs errors to error_full_scan.log.
-
----
----
 <br>
 
 # 🛡️ OWASP ZAP skeniranje
 
-## 🇷🇸 Srpski
+<a id="srpski"></a>
 
 Dvostruko ZAP skeniranje se koristi za analizu bezbednosnih ranjivosti aplikacije.
 
-🔍 1. ZAP API Skeniranje
+## 🔍 1. ZAP API Skeniranje
 Komanda:
 
 ```bash
@@ -59,13 +49,9 @@ python zap-api-scan.py \
   -f openapi \
   -g gen_file_api_scan
 ```  
-Skenira OpenAPI specifikaciju aplikacije.
+Skenira OpenAPI specifikaciju aplikacije. Generiše HTML i JSON izveštaje. Greške se upisuju u *error_api_scan.log*.
 
-Generiše HTML i JSON izveštaje.
-
-Greške se upisuju u error_api_scan.log.
-
-🌐 2. ZAP Puno skeniranje
+## 🌐 2. ZAP Puno skeniranje
 Komanda:
 
 ```bash
@@ -75,9 +61,5 @@ python zap-full-scan.py \
   -t http://digital-library-app:3000/ \
   -g gen_file_full_scan
 ```
-Analizira celu aplikaciju kroz sve dostupne stranice.
-
-Generiše HTML i JSON izveštaje.
-
-Greške se upisuju u error_full_scan.log.
+Analizira celu aplikaciju kroz sve dostupne stranice. Generiše HTML i JSON izveštaje.Greške se upisuju u *error_full_scan.log*.
 
