@@ -5,12 +5,12 @@
 📁 [.docs](https://github.com/nemanjamt/digital-library/tree/master/.docs)  
 ├── [Zap api scan example.html](https://github.com/nemanjamt/digital-library/blob/master/.docs/Zap%20api%20scan%20example.html)  
 ├── [Zap full scan example.html](https://github.com/nemanjamt/digital-library/blob/master/.docs/Zap%20full%20scan%20example.html)  
-├── [GPG Application signing.md](https://github.com/nemanjamt/digital-library/blob/master/.docs/GPG%20Application%20signing.md#-english)   
-├── [OWASP Dependecy check.md](https://github.com/nemanjamt/digital-library/blob/master/.docs/OWASP%20Dependecy%20check.md#-english)  
-├── [OWASP Zap.md](https://github.com/nemanjamt/digital-library/blob/master/.docs/OWASP%20Zap.md#-english)  
+├── [GPG Application signing.md](https://github.com/nemanjamt/digital-library/blob/master/.docs/GPG%20Application%20signing.md#english)   
+├── [OWASP Dependecy check.md](https://github.com/nemanjamt/digital-library/blob/master/.docs/OWASP%20Dependecy%20check.md#english)  
+├── [OWASP Zap.md](https://github.com/nemanjamt/digital-library/blob/master/.docs/OWASP%20Zap.md#english)  
 ├── [README.md](https://github.com/nemanjamt/digital-library/blob/master/.docs/README.md)  
-├── [SonarQube.md](https://github.com/nemanjamt/digital-library/blob/master/.docs/SonarQube.md#-english) <br>
-└── [Threat Assesment.md](https://github.com/nemanjamt/digital-library/blob/master/.docs/Threat%20Assesment.md#-english) <br>  
+├── [SonarQube.md](https://github.com/nemanjamt/digital-library/blob/master/.docs/SonarQube.md#english) <br>
+└── [Threat Assesment.md](https://github.com/nemanjamt/digital-library/blob/master/.docs/Threat%20Assesment.md#english) <br>  
 
 
 > 📄 Each pipeline stage is documented in its own file. Click the links above to explore each document.
@@ -58,12 +58,12 @@ Our security pipeline helps ensure your application remains secure throughout th
 [.docs](https://github.com/nemanjamt/digital-library/tree/master/.docs) <br>
 ├── [Zap API Primer Skeniranja.html](https://github.com/nemanjamt/digital-library/blob/master/.docs/Zap%20api%20scan%20example.html) <br>
 ├── [Zap Puni Sken Primer.html](https://github.com/nemanjamt/digital-library/blob/master/.docs/Zap%20full%20scan%20example.html)  <br>
-├── [GPG Potpisivanje Aplikacije.md](https://github.com/nemanjamt/digital-library/blob/master/.docs/GPG%20Application%20signing.md#-srpski) <br>
-├── [OWASP Provera Zavisnosti.md](https://github.com/nemanjamt/digital-library/blob/master/.docs/OWASP%20Dependecy%20check.md#-srpski)   <br>
-├── [OWASP ZAP.md](https://github.com/nemanjamt/digital-library/blob/master/.docs/OWASP%20Zap.md#-srpski)   <br>
+├── [GPG Potpisivanje Aplikacije.md](https://github.com/nemanjamt/digital-library/blob/master/.docs/GPG%20Application%20signing.md#srpski) <br>
+├── [OWASP Provera Zavisnosti.md](https://github.com/nemanjamt/digital-library/blob/master/.docs/OWASP%20Dependecy%20check.md#srpski)   <br>
+├── [OWASP ZAP.md](https://github.com/nemanjamt/digital-library/blob/master/.docs/OWASP%20Zap.md#srpski)   <br>
 ├── [README.md](https://github.com/nemanjamt/digital-library/blob/master/.docs/README.md) <br>
-├── [SonarQube.md](https://github.com/nemanjamt/digital-library/blob/master/.docs/SonarQube.md#-srpski) <br>
-└── [Threat Assesment.md](https://github.com/nemanjamt/digital-library/blob/master/.docs/Threat%20Assesment.md#-srpski) <br>
+├── [SonarQube.md](https://github.com/nemanjamt/digital-library/blob/master/.docs/SonarQube.md#srpski) <br>
+└── [Threat Assesment.md](https://github.com/nemanjamt/digital-library/blob/master/.docs/Threat%20Assesment.md#srpski) <br>
 
 > 📄 Svaka faza pipelina je opisana u posebnom fajlu. Pogledajte linkove iznad za više informacija.
 
