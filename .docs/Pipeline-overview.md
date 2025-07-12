@@ -14,4 +14,4 @@ Na grafičkom prikazu pipeline-a se mogu uočiti servisi iz docker compose-a, iz
 potpisani softver kao i granice povjerenja predstavljene za iste. Granice povjerenja su definisane za izvorni kod
 zbog pokretanja istog na serveru koji bi mogao biti kompromitovan(a čitav pipeline se na primjer izvršio uredno)
 ali i za potpisani softver koji bi mogao biti kompromitovan jer se šalje na produkciju i to bi bila posebna zova povjerenja
-u odnosu na pipeline.
+u odnosu na servise iz docker-compose-a ali i izvorni kod.
