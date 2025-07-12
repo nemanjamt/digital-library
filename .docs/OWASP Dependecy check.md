@@ -1,5 +1,37 @@
 # OWASP Dependency Check
+**Command:**
+```bash
+/usr/share/dependency-check/bin/dependency-check.sh \
+  --project DIGITAL_LIBRARY_PROJECT \
+  --scan /src \
+  --format ALL \
+  --out /reports \
+  --nvdApiKey <API_KEY>
+```
 
+## Description:
+This command analyzes all project dependencies to find security vulnerabilities (CVEs).
+
+It uses the NVD (National Vulnerability Database) as a data source, with the nvdApiKey used as the access key.
+
+The tool scans the entire /src directory.
+
+It generates reports in all available formats (JSON, XML, SARIF, CSV) and saves them in the /reports folder.
+
+When the scan is finished, it creates a file: /.done/dependency-scan.done.
+Other services use this file for synchronization.
+
+The scan is run from a Docker container defined in the owasp-dependency-check service.
+
+## Logs and Reports:
+Reports are stored in the following folder (relative to /src):
+../.dependency-check/reports/
+
+Logs are not explicitly defined at the moment, but they can be viewed in the container output, or configured additionally if needed.
+
+
+
+# OWASP provjera zavisnosti
 ## Komanda:
 ```bash
 /usr/share/dependency-check/bin/dependency-check.sh \
