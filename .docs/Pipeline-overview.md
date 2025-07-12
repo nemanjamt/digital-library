@@ -9,7 +9,7 @@ The report-generate service also waits for these to complete in order to generat
 The signed software is shown on the other side of the trust boundary, as it could potentially be replaced or tampered with.
 
 <a id="srpski"></a>
-## Srpska verzija
+## Grafički prikaz pipeline-a
 
 Na grafičkom prikazu pipeline-a se mogu uočiti servisi iz docker compose-a, izvorni kod kao ulaz u pipeline,
 potpisani softver kao i granice povjerenja predstavljene za iste. Granice povjerenja su definisane za izvorni kod
