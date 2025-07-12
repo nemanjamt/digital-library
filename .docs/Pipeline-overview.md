@@ -8,6 +8,7 @@ Many services run in parallel (e.g., dependency-check, build-sign), but some are
 The report-generate service also waits for these to complete in order to generate the final report.
 The signed software is shown on the other side of the trust boundary, as it could potentially be replaced or tampered with.
 
+<a id="srpski"></a>
 ## Srpska verzija
 
 Na grafičkom prikazu pipeline-a se mogu uočiti servisi iz docker compose-a, izvorni kod kao ulaz u pipeline,
