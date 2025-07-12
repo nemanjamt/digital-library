@@ -83,7 +83,6 @@ services:
     volumes:
       - ../.done:/.done
     entrypoint: ["/bin/bash", "-c", "/usr/src/.sonar/generate-token.sh && export SONAR_TOKEN=$(cat /usr/src/sonar_token.txt) && sonar-scanner && touch /.done/sonarscanner.done"]
-    # entrypoint: ["/bin/bash", "-c", "tail -f /dev/null"]
   
   report-generate:
     container_name: report-general
@@ -98,8 +97,7 @@ services:
       - ../.deploy/.zap/full-scan:/app/full-scan
       - ../.dependency-check/reports/:/app/dependency-check
       - ../.done:/.done
-    # entrypoint: ["/bin/bash", "-c", "tail -f /dev/null"]
-    entrypoint: ["/bin/bash", "-c", "rm -f /.done/sonarscanner.done && while [[ ! -f /.done/sonarscanner.done || ! -f /.done/dependency-scan.done ]]; do echo 'Waiting for sonarscanner to finish...'; sleep 5; done; echo 'Starting report generation...' ; sleep 20 && python .report/generate-report2.py"]
+    entrypoint: ["/bin/bash", "-c", "rm -f /.done/sonarscanner.done && while [[ ! -f /.done/sonarscanner.done || ! -f /.done/dependency-scan.done ]]; do echo 'Waiting for sonarscanner to finish...'; sleep 5; done; echo 'Starting report generation...' ; sleep 20 && python .report/generate-report.py"]
   
   owasp-dependency-check:
     container_name: owasp-dependency-check
@@ -123,8 +121,6 @@ services:
       GPG_EMAIL: example@domain.com
       GPG_PASSPHRASE: "your-passphrase"
       SERVICE_NAME: "digital-library-1.0.0"
-    # command: > 
-    #   tail -f /dev/null
     entrypoint: ["/bin/bash", "-c", ".signing/sign.sh"]
 
 
