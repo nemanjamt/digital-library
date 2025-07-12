@@ -28,7 +28,7 @@ Reports are stored in the following folder (relative to /src):
 ../.dependency-check/reports/
 
 Logs are not explicitly defined at the moment, but they can be viewed in the container output, or configured additionally if needed.
-
+<br><br><br>
 
 
 # OWASP provjera zavisnosti
