@@ -106,11 +106,12 @@ echo "Package, signature and public key moved to $FINAL_REPORT_DIR"
 - `public-key.asc` - public key for signature verification
 
 ---
----
+<br><br>
+
+<a id="srpski"></a>
 
 # 🔐 GPG Potpisivanje aplikacije
 
-<a id="srpski"></a>
 
 Ova faza osigurava integritet i autentičnost aplikacije pomoću GPG potpisivanja `.tgz` paketa. [Link do kompletne scripte](https://github.com/your-org/your-repo/blob/main/.signing/sign.sh)
 

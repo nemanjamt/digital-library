@@ -48,8 +48,8 @@ Our security pipeline helps ensure your application remains secure throughout th
    A combined report is created, aggregating results from all tools.
 
 ---
-
-## 🇷🇸 Verzija na srpskom
+<br>
+<br>
 
 # 🛡️ Dokumentacija o sigurnosnom pipelinu
 
