@@ -9,7 +9,7 @@
 ├── [OWASP Dependecy check.md](https://github.com/nemanjamt/digital-library/blob/master/.docs/OWASP%20Dependecy%20check.md#english)  
 ├── [OWASP Zap.md](https://github.com/nemanjamt/digital-library/blob/master/.docs/OWASP%20Zap.md#english)  
 ├── [README.md](https://github.com/nemanjamt/digital-library/blob/master/.docs/README.md)  
-├── [SonarQube.md](https://github.com/nemanjamt/digital-library/blob/master/.docs/SonarQube.md#english) 
+├── [SonarQube.md](https://github.com/nemanjamt/digital-library/blob/master/.docs/SonarQube.md#english) <br>
 ├── [Threat Assesment.md](https://github.com/nemanjamt/digital-library/blob/master/.docs/Threat%20Assesment.md#english)   
 └── [Pipeline-overview.md](https://github.com/nemanjamt/digital-library/blob/master/.docs/Pipeline-overview.md#english) <br>  
 
@@ -66,7 +66,7 @@ Our security pipeline helps ensure your application remains secure throughout th
 ├── [OWASP ZAP.md](https://github.com/nemanjamt/digital-library/blob/master/.docs/OWASP%20Zap.md#srpski)   <br>
 ├── [README.md](https://github.com/nemanjamt/digital-library/blob/master/.docs/README.md) <br>
 ├── [SonarQube.md](https://github.com/nemanjamt/digital-library/blob/master/.docs/SonarQube.md#srpski) <br>
-├── [Threat Assesment.md](https://github.com/nemanjamt/digital-library/blob/master/.docs/Threat%20Assesment.md#srpski) <br>
+├── [Threat Assesment.md](https://github.com/nemanjamt/digital-library/blob/master/.docs/Threat%20Assesment.md#srpski) 
 └── [Pipeline-overview.md](https://github.com/nemanjamt/digital-library/blob/master/.docs/Pipeline-overview.md#srpski) <br>
 
 > 📄 Svaka faza pipelina je opisana u posebnom fajlu. Pogledajte linkove iznad za više informacija.
