@@ -2,17 +2,23 @@
 <a id="english"></a>
 
 ## 🔧 Overview  
-This pipeline integrates automated security checks into your CI/CD flow using containerized tools to protect applications from a range of cybersecurity threats across multiple stages of the software development lifecycle.
+This pipeline integrates automated security checks into your CD/CI flow using containerized tools to protect applications from a range of cybersecurity threats across multiple stages of the software development lifecycle.
 
 ---
 
 ## 1. Endpoint Security Testing (OWASP ZAP)  
+
 ### 🧪 Description:  
+
 ZAP performs:  
+
 - API Scan: Targets your API endpoints.  
 - Full Scan: Crawls and fuzzes the entire web application surface.
 
 ### ⚔️ Attacks mitigated:  
+
+- **SQL injection:** where malicious input manipulates SQL queries or commands.
+- **Cross-Site-Scripting (XSS):** where malicious scripts are injected into otherwise benign and trusted websites
 - **LDAP Injection:** where malicious input manipulates backend queries or commands.  
 - **Cross-Site Request Forgery (CSRF):** Tricks authenticated users into submitting unwanted actions.  
 - **Insecure Direct Object References (IDOR):** Unauthorized data access by manipulating URLs or parameters.  
@@ -23,6 +29,7 @@ ZAP performs:
 - **Unvalidated Redirects and Forwards:** Redirecting users to malicious sites or unintended pages.
 
 ### 🛡️ Threats mitigated:  
+
 - Broken authentication/session control risks.  
 - Security misconfigurations leading to privilege escalation or information leaks.  
 - Exposure of sensitive data (PII, credentials).  
@@ -32,10 +39,13 @@ ZAP performs:
 ---
 
 ## 2. Static Code Analysis (SonarQube)  
+
 ### 🧪 Description:  
+
 Analyzes source code for bugs, code smells, and vulnerabilities using static analysis techniques without executing the code.
 
 ### ⚔️ Attacks mitigated:  
+
 - **Buffer Overflows:** Memory corruption vulnerabilities that can lead to arbitrary code execution.  
 - **Race Conditions:** Flaws due to improper timing or concurrent access to shared resources.  
 - **Insufficient Input Validation:** Leads to injection attacks and logic bypass.  
@@ -43,6 +53,7 @@ Analyzes source code for bugs, code smells, and vulnerabilities using static ana
 - **Hardcoded Secrets:** Embedded passwords, API keys, tokens in codebase.
 
 ### 🛡️ Threats mitigated:  
+
 - Logical flaws that could cause incorrect behavior or security bypass.  
 - Exposure of secrets increasing risk of compromise.  
 - Use of deprecated or insecure APIs.  
@@ -51,14 +62,18 @@ Analyzes source code for bugs, code smells, and vulnerabilities using static ana
 ---
 
 ## 3. Dependency Vulnerability Scanning (OWASP Dependency-Check)  
+
 ### 🧪 Description:  
+
 Scans third-party libraries and frameworks for known vulnerabilities by checking against public CVE databases and advisories.
 
 ### ⚔️ Attacks mitigated:  
+
 - **Supply Chain Attacks:** Exploiting vulnerable or malicious dependencies to compromise the software.  
 - **Known Exploits:** Using known CVEs that attackers can exploit remotely or locally.
 
 ### 🛡️ Threats mitigated:  
+
 - Use of outdated or unpatched third-party components.  
 - Transitive dependencies introducing unknown risks.  
 - Vulnerabilities with no vendor patches requiring mitigation or replacement.
@@ -66,10 +81,13 @@ Scans third-party libraries and frameworks for known vulnerabilities by checking
 ---
 
 ## 4. Packaging and GPG Signing  
+
 ### 🧪 Description:  
+
 Signs the final artifact with GPG. Verifiers can confirm origin and integrity using the public key and signature.
 
 ### 🛡️ Attacks mitigated:  
+
 - **Tampering During Deployment:** Unauthorized changes to binaries or packages in transit or storage.  
 - **Man-in-the-Middle (MITM) Attacks:** Intercepting and modifying packages.  
 - **Repackaged Malware:** Injecting malicious code into legitimate software distributions.  
@@ -78,10 +96,13 @@ Signs the final artifact with GPG. Verifiers can confirm origin and integrity us
 ---
 
 ## 5. Final Report Generation  
+
 ### 🧪 Description:  
+
 Combines results from all tools into a single unified report for analysis, auditing, and traceability.
 
-### 🛡️ Benefits:  
+### 🛡️ Benefits: 
+
 - Improved visibility of risks and vulnerabilities.  
 - Easier audit trails for compliance frameworks (e.g., ISO 27001, SOC 2).  
 - Centralized decision-making support for prioritizing fixes.
@@ -95,18 +116,24 @@ Combines results from all tools into a single unified report for analysis, audit
 # 🛡️ Pregled sigurnosnog pipeline-a i zaštita od pretnji  
 
 ## 🔧 Opšti Opis  
-Ovaj sigurnosni *pipeline* integriše automatizovane bezbednosne provere u CI/CD tok razvoja koristeći *Docker* kontejnere sa specijalizovanim alatima. Svaka faza štiti aplikaciju od različitih tipova sajber pretnji tokom razvoja i distribucije softvera.
+
+Ovaj sigurnosni *pipeline* integriše automatizovane bezbednosne provere u CD/CI tok razvoja koristeći *Docker* kontejnere sa specijalizovanim alatima. Svaka faza štiti aplikaciju od različitih tipova sajber pretnji tokom razvoja i distribucije softvera.
 
 ---
 
 ## 1. Testiranje bezbednosti krajnjih tačaka (OWASP ZAP)  
+
 ### 🧪 Opis:  
+
 ZAP vrši:  
 - API skeniranje: testira REST/HTTP API krajnje tačke.  
 - Puno skeniranje: skenira ceo web interfejs aplikacije.
 
-### ⚔️ Napadi protiv kojih štiti:  
-- **Injekcioni napadi:** SQL injekcija, XSS, komandna injekcija, LDAP injekcija — gde zlonamerni unos menja upite ili komande.  
+### ⚔️ Napadi protiv kojih štiti: 
+
+- **SQL injekcija:** gde zlonamerni unos menja SQL upite ili komande. 
+- **Cross-Site-Scripting (XSS):** gde su zlonamerne skripte ubačene u inače proverene veb stranice.
+- **LDAP injekcija** gde zlonamerni unos menja upite ili komande.  
 - **CSRF:** Prisiljavanje prijavljenog korisnika na neželjene akcije.  
 - **IDOR:** Neautorizovan pristup podacima promenom URL ili parametara.  
 - **Sigurnosne konfiguracije:** Pogrešne postavke koje otkrivaju osetljive informacije ili funkcionalnosti.  

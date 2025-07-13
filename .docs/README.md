@@ -7,8 +7,7 @@
 ├── [Zap full scan example.html](https://github.com/nemanjamt/digital-library/blob/master/.docs/Zap%20full%20scan%20example.html)  
 ├── [GPG Application signing.md](https://github.com/nemanjamt/digital-library/blob/master/.docs/GPG%20Application%20signing.md#english)   
 ├── [OWASP Dependecy check.md](https://github.com/nemanjamt/digital-library/blob/master/.docs/OWASP%20Dependecy%20check.md#english)  
-├── [OWASP Zap.md](https://github.com/nemanjamt/digital-library/blob/master/.docs/OWASP%20Zap.md#english)  
-├── [README.md](https://github.com/nemanjamt/digital-library/blob/master/.docs/README.md)  
+├── [OWASP Zap.md](https://github.com/nemanjamt/digital-library/blob/master/.docs/OWASP%20Zap.md#english)    
 ├── [SonarQube.md](https://github.com/nemanjamt/digital-library/blob/master/.docs/SonarQube.md#english) <br>
 ├── [Threat Assesment.md](https://github.com/nemanjamt/digital-library/blob/master/.docs/Threat%20Assesment.md#english)   
 └── [Pipeline-overview.md](https://github.com/nemanjamt/digital-library/blob/master/.docs/Pipeline-overview.md#english) <br>  
@@ -54,7 +53,7 @@ Our security pipeline helps ensure your application remains secure throughout th
 <br>
 <br>
 
-# 🛡️ Dokumentacija o sigurnosnom pipelinu
+# 🛡️ Dokumentacija o sigurnosnom pipeline-u
 
 ## 📂 Struktura dokumentacije
 
@@ -64,16 +63,15 @@ Our security pipeline helps ensure your application remains secure throughout th
 ├── [GPG Potpisivanje Aplikacije.md](https://github.com/nemanjamt/digital-library/blob/master/.docs/GPG%20Application%20signing.md#srpski) <br>
 ├── [OWASP Provera Zavisnosti.md](https://github.com/nemanjamt/digital-library/blob/master/.docs/OWASP%20Dependecy%20check.md#srpski)   <br>
 ├── [OWASP ZAP.md](https://github.com/nemanjamt/digital-library/blob/master/.docs/OWASP%20Zap.md#srpski)   <br>
-├── [README.md](https://github.com/nemanjamt/digital-library/blob/master/.docs/README.md) <br>
 ├── [SonarQube.md](https://github.com/nemanjamt/digital-library/blob/master/.docs/SonarQube.md#srpski) <br>
-├── [Threat Assesment.md](https://github.com/nemanjamt/digital-library/blob/master/.docs/Threat%20Assesment.md#srpski) <br>
-└── [Pipeline-overview.md](https://github.com/nemanjamt/digital-library/blob/master/.docs/Pipeline-overview.md#srpska-verzija) <br>
+├── [Analiza pretnji.md](https://github.com/nemanjamt/digital-library/blob/master/.docs/Threat%20Assesment.md#srpski) <br>
+└── [Pregled pipeline-a.md](https://github.com/nemanjamt/digital-library/blob/master/.docs/Pipeline-overview.md#srpska-verzija) <br>
 
-> 📄 Svaka faza pipelina je opisana u posebnom fajlu. Pogledajte linkove iznad za više informacija.
+> 📄 Svaka faza pipeline-a je opisana u posebnom fajlu. Pogledajte link-ove iznad za više informacija.
 
 ---
 
-## 🔒 Pregled sigurnosnog pipelina
+## 🔒 Pregled sigurnosnog pipeline-a
 
 Naš sigurnosni pipeline štiti vašu aplikaciju tokom razvoja koristeći dobro poznate alate. Svaki alat se pokreće u sopstvenom Docker kontejneru i ima jasno definisanu ulogu.
 
@@ -84,7 +82,7 @@ Naš sigurnosni pipeline štiti vašu aplikaciju tokom razvoja koristeći dobro 
 - [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/)
 - [GPG Potpisivanje](https://gnupg.org/)
 
-### 📋 Faze pipelina
+### 📋 Faze pipeline-a
 
 1. **Testiranje sigurnosti krajnjih tačaka**  
    Pokreću se dve ZAP provere:

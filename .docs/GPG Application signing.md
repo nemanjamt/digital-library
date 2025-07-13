@@ -175,7 +175,7 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 ```
-#### 5. Potpisuje `.tgz` fajl koristeći GPG (odvojen potpis).
+#### 5. Potpisuje `.tgz` datoteku koristeći GPG (odvojen potpis).
 ```bash
 # Move the package to the signing output directory
 mv "$PACKAGE_TGX" "$OUTPUT_DIR/"
