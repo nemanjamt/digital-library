@@ -18,7 +18,7 @@
 10025	WARN	(Information Disclosure - Sensitive Information in HTTP Referrer Header - Passive/release)
 10026	WARN	(HTTP Parameter Override - Passive/beta)
 10027	WARN	(Information Disclosure - Suspicious Comments - Passive/release)
-10028	WARN	(Open Redirect - Passive/release)
+10028	WARN	(Off-site Redirect - Passive/release)
 10029	WARN	(Cookie Poisoning - Passive/release)
 10030	WARN	(User Controllable Charset - Passive/release)
 10031	WARN	(User Controllable HTML Element Attribute (Potential XSS) - Passive/release)

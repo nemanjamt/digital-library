@@ -51,7 +51,7 @@ services:
       - sonarqube_logs:/opt/sonarqube/logs
       - sonarqube_temp:/opt/sonarqube/temp
     healthcheck:
-      test: ["CMD", "wget", "--method=GET","http://localhost:9000/api/server/version", "-O", "-"]
+      test: [ "CMD", "wget", "--method=GET", "http://localhost:9000/api/server/version", "-O", "-" ]
       interval: 30s
       timeout: 15s
       retries: 10
@@ -67,7 +67,7 @@ services:
     volumes:
       - sonar_db:/var/lib/postgresql
       - sonar_db_data:/var/lib/postgresql/data
-  
+
   sonarscanner:
     container_name: sonarscanner
     build:
@@ -82,8 +82,8 @@ services:
       - SONAR_HOST_URL=http://sonarqube:9000
     volumes:
       - ../.done:/.done
-    entrypoint: ["/bin/bash", "-c", "/usr/src/.sonar/generate-token.sh && export SONAR_TOKEN=$(cat /usr/src/sonar_token.txt) && sonar-scanner && touch /.done/sonarscanner.done"]
-  
+    entrypoint: [ "/bin/bash", "-c", "/usr/src/.sonar/generate-token.sh && export SONAR_TOKEN=$(cat /usr/src/sonar_token.txt) && sonar-scanner && touch /.done/sonarscanner.done" ]
+
   report-generate:
     container_name: report-general
     build:
@@ -97,18 +97,18 @@ services:
       - ../.deploy/.zap/full-scan:/app/full-scan
       - ../.dependency-check/reports/:/app/dependency-check
       - ../.done:/.done
-    entrypoint: ["/bin/bash", "-c", "rm -f /.done/sonarscanner.done && while [[ ! -f /.done/sonarscanner.done || ! -f /.done/dependency-scan.done ]]; do echo 'Waiting for sonarscanner to finish...'; sleep 5; done; echo 'Starting report generation...' ; sleep 20 && python .report/generate-report.py"]
-  
+    #entrypoint: [ "/bin/bash", "-c", "rm -f /.done/sonarscanner.done && while [[ ! -f /.done/sonarscanner.done || ! -f /.done/dependency-scan.done ]]; do echo 'Waiting for sonarscanner to finish...'; sleep 5; done; echo 'Starting report generation...' ; sleep 20 && python .report/generate-report.py" ]
+    entrypoint: [ "python", ".report/generate-report.py" ]
   owasp-dependency-check:
     container_name: owasp-dependency-check
     build:
       context: ..
       dockerfile: .dependency-check/Dockerfile
     volumes:
-      - ../:/src                   
-      - ../.dependency-check/reports:/reports       
+      - ../:/src
+      - ../.dependency-check/reports:/reports
       - ../.done:/.done
-    entrypoint: ["/bin/sh", "-c", "rm -f /.done/dependency-check.done && /usr/share/dependency-check/bin/dependency-check.sh --project DIGITAL_LIBRARY_PROJECT --scan /src --format ALL --out /reports --nvdApiKey 19f22f54-88f6-4486-929d-95eabb568898 && touch /.done/dependency-scan.done"] 
+    entrypoint: [ "/bin/sh", "-c", "rm -f /.done/dependency-check.done && /usr/share/dependency-check/bin/dependency-check.sh --project DIGITAL_LIBRARY_PROJECT --scan /src --format ALL --out /reports --nvdApiKey 19f22f54-88f6-4486-929d-95eabb568898 && touch /.done/dependency-scan.done" ]
 
   build-sign:
     image: node:18
@@ -121,11 +121,11 @@ services:
       GPG_EMAIL: example@domain.com
       GPG_PASSPHRASE: "your-passphrase"
       SERVICE_NAME: "digital-library-1.0.0"
-    entrypoint: ["/bin/bash", "-c", ".signing/sign.sh"]
-
+    entrypoint: [ "/bin/bash", "-c", ".signing/sign.sh" ]
 
 networks:
   sonarnet:
+
 
 volumes:
   sonarqube_conf:
