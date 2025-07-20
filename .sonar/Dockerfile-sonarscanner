@@ -4,6 +4,8 @@ COPY . /usr/src
 
 WORKDIR /usr/src
 
+RUN chmod +x .sonar/generate-token.sh
+
 RUN ls -la /usr/src
 
 ENTRYPOINT ["/bin/bash"]
