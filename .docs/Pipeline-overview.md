@@ -14,5 +14,5 @@ The signed software is shown on the other side of the trust boundary, as it coul
 Na grafičkom prikazu pipeline-a se mogu uočiti servisi iz docker compose-a, izvorni kod kao ulaz u pipeline,
 potpisani softver kao i granice povjerenja predstavljene za iste. Granice povjerenja su definisane za izvorni kod
 zbog pokretanja istog na serveru koji bi mogao biti kompromitovan(a čitav pipeline se na primjer izvršio uredno)
-ali i za potpisani softver koji bi mogao biti kompromitovan jer se šalje na produkciju i to bi bila posebna zova povjerenja
+ali i za potpisani softver koji bi mogao biti kompromitovan jer se šalje na produkciju i to bi bila posebna zona povjerenja
 u odnosu na servise iz docker-compose-a ali i izvorni kod.
