@@ -15,7 +15,7 @@ class SonarQubeSectionGenerator:
         for i, hs in enumerate(self.hotspots, 1):
             cleaned_message = html_te.strip_html(hs.get('message', ''))
             pdf.set_font("Arial", "B", 12)
-            pdf.cell(0, 10, f"{i}. {html_te.strip_html(cleaned_message[:80])}...", ln=True)
+            pdf.cell(0, 10, f"Hotspot #{i}", ln=True)
 
             pdf.set_font("Arial", "", 11)
             pdf.multi_cell(0, 8,

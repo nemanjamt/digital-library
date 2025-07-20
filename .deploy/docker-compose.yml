@@ -82,7 +82,7 @@ services:
       - SONAR_HOST_URL=http://sonarqube:9000
     volumes:
       - ../.done:/.done
-    entrypoint: [ "/bin/bash", "-c", "/usr/src/.sonar/generate-token.sh && export SONAR_TOKEN=$(cat /usr/src/sonar_token.txt) && sonar-scanner && touch /.done/sonarscanner.done" ]
+    entrypoint: [ "/bin/bash", "-c", "/usr/src/.sonar/generate-token.sh" ]
 
   report-generate:
     container_name: report-general
@@ -97,7 +97,7 @@ services:
       - ../.deploy/.zap/full-scan:/app/full-scan
       - ../.dependency-check/reports/:/app/dependency-check
       - ../.done:/.done
-    entrypoint: [ "/bin/bash", "-c", "rm -f /.done/sonarscanner.done && while [[ ! -f /.done/sonarscanner.done || ! -f /.done/dependency-scan.done ]]; do echo 'Waiting for sonarscanner to finish...'; sleep 5; done; echo 'Starting report generation...' ; sleep 20 && python .report/generate-report.py" ]
+    entrypoint: [ "/bin/bash", "-c", ".report/wait-for-services.sh && python .report/generate-report.py" ]
   owasp-dependency-check:
     container_name: owasp-dependency-check
     build:
