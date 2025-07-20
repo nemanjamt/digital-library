@@ -97,8 +97,7 @@ services:
       - ../.deploy/.zap/full-scan:/app/full-scan
       - ../.dependency-check/reports/:/app/dependency-check
       - ../.done:/.done
-    #entrypoint: [ "/bin/bash", "-c", "rm -f /.done/sonarscanner.done && while [[ ! -f /.done/sonarscanner.done || ! -f /.done/dependency-scan.done ]]; do echo 'Waiting for sonarscanner to finish...'; sleep 5; done; echo 'Starting report generation...' ; sleep 20 && python .report/generate-report.py" ]
-    entrypoint: [ "python", ".report/generate-report.py" ]
+    entrypoint: [ "/bin/bash", "-c", "rm -f /.done/sonarscanner.done && while [[ ! -f /.done/sonarscanner.done || ! -f /.done/dependency-scan.done ]]; do echo 'Waiting for sonarscanner to finish...'; sleep 5; done; echo 'Starting report generation...' ; sleep 20 && python .report/generate-report.py" ]
   owasp-dependency-check:
     container_name: owasp-dependency-check
     build:

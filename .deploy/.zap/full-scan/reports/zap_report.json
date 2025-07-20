@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.16.1",
-	"@generated": "Sun, 13 Jul 2025 17:31:06",
+	"@generated": "Sun, 20 Jul 2025 10:15:51",
 	"site":[ 
 		{
 			"@name": "http://digital-library-app:3000",
@@ -38,7 +38,7 @@
 							"otherinfo": "The directive(s): frame-ancestors, form-action is/are among the directives that do not fallback to default-src."
 						},
 						{
-							"id": "5",
+							"id": "6",
 							"uri": "http://digital-library-app:3000/sitemap.xml",
 							"method": "GET",
 							"param": "Content-Security-Policy",
@@ -84,7 +84,7 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "14",
+							"id": "12",
 							"uri": "http://digital-library-app:3000/sitemap.xml",
 							"method": "GET",
 							"param": "",
@@ -121,7 +121,7 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "7",
+							"id": "8",
 							"uri": "http://digital-library-app:3000/robots.txt",
 							"method": "GET",
 							"param": "",
@@ -130,7 +130,7 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "8",
+							"id": "7",
 							"uri": "http://digital-library-app:3000/sitemap.xml",
 							"method": "GET",
 							"param": "",
@@ -167,7 +167,7 @@
 							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
 						},
 						{
-							"id": "12",
+							"id": "14",
 							"uri": "http://digital-library-app:3000/robots.txt",
 							"method": "GET",
 							"param": "",
@@ -176,7 +176,7 @@
 							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
 						},
 						{
-							"id": "11",
+							"id": "10",
 							"uri": "http://digital-library-app:3000/sitemap.xml",
 							"method": "GET",
 							"param": "",

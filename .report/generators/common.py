@@ -1,4 +1,6 @@
 from html.parser import HTMLParser
+import re
+import unicodedata
 
 class HTMLTextExtractor(HTMLParser):
     def __init__(self):
@@ -29,6 +31,7 @@ class HTMLTextExtractor(HTMLParser):
         parser.feed(text)
         clean = parser.get_text()
 
+        # Replace known common Unicode symbols with ASCII equivalents
         replacements = {
             '\u2014': '-',   # em dash
             '\u2013': '-',   # en dash
@@ -37,10 +40,17 @@ class HTMLTextExtractor(HTMLParser):
             '\u201c': '"',   # left double quote
             '\u201d': '"',   # right double quote
             '\xa0': ' ',     # non-breaking space
+            '\u2026': '...', # ellipsis
         }
-
         for k, v in replacements.items():
             clean = clean.replace(k, v)
+
+        # Normalize and remove unrepresentable characters (e.g. emojis, odd symbols)
+        clean = unicodedata.normalize("NFKD", clean)
+        clean = clean.encode("ascii", "ignore").decode("ascii")
+
+        # Optionally, collapse any leftover strange spacing artifacts
+        clean = re.sub(r'[ \t]+', ' ', clean)
 
         lines = [line.strip() for line in clean.splitlines()]
         return "\n".join(filter(None, lines)).strip()

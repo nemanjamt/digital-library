@@ -47,36 +47,35 @@ params = {
 auth = ("admin", "admin")  # Korisničko ime i lozinka
 
 try:
-    #   # API poziv za dobavljanje podataka
-    # response = requests.get(url, params=params, auth=auth)
+      # API poziv za dobavljanje podataka
+    response = requests.get(url, params=params, auth=auth)
 
-    # # Provera statusnog koda
-    # if response.status_code != 200:
-    #     print(f"Greška pri pozivu API-ja: {response.status_code}")
-    #     print(response.text)
-    #     exit()
+    # Provera statusnog koda
+    if response.status_code != 200:
+        print(f"Greška pri pozivu API-ja: {response.status_code}")
+        print(response.text)
+        exit()
 
-    # # Parsiranje odgovora
-    # data = response.json()
+    # Parsiranje odgovora
+    data = response.json()
 
-    # # Provera da li ima hotspotova u odgovoru
-    # if not data.get("hotspots"):
-    #     print("Nema dostupnih hotspotova.")
-    #     exit()
-    # print(data)
+    # Provera da li ima hotspotova u odgovoru
+    if not data.get("hotspots"):
+        print("Nema dostupnih hotspotova.")
+        exit()
 
     # Generators
-    pdf_gen = PDFGenerator(language='en')
+    pdf_gen = PDFGenerator()
+    sonar_gen = SonarQubeSectionGenerator(hotspots=data.get("hotspots", []))
     full_zap_gen = ZapSectionGenerator(scan_data=full_scan_zap_data)
-    api_zap_gen = ZapSectionGenerator(scan_data=full_scan_zap_data)
-    #sonar_gen = SonarQubeSectionGenerator(issues=data)
+    api_zap_gen = ZapSectionGenerator(scan_data=api_scan_zap_data)
     dependency_gen = DependencyCheckSectionGenerator(dependencies=dependency_data)
 
     #Register section generators
-    #pdf_gen.add_part(sonar_gen.generate, title=pdf_gen.translate['sonarqube_title'])
-    pdf_gen.add_part(full_zap_gen.generate, title=pdf_gen.translations['zap_full_scan_title'])
-    pdf_gen.add_part(api_zap_gen.generate, title=pdf_gen.translations['zap_api_scan_title'])
-    pdf_gen.add_part(dependency_gen.generate, title=pdf_gen.translations['dependency_check_title'])
+    pdf_gen.add_part(sonar_gen.generate, title="SonarQube Hotspots")
+    pdf_gen.add_part(full_zap_gen.generate, title="ZAP Full Scan")
+    pdf_gen.add_part(api_zap_gen.generate, title="ZAP API Scan")
+    pdf_gen.add_part(dependency_gen.generate, title="Dependency Check")
     pdf_gen.generate("/app/reports/REPORT.pdf")
     print("Report generated")
 

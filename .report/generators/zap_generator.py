@@ -6,7 +6,7 @@ class ZapSectionGenerator:
         self.scan_data = scan_data
         self.sites = scan_data.get("site",[])
 
-    def generate(self, pdf: FPDF, t: dict): 
+    def generate(self, pdf: FPDF): 
         alerts_per_site = {
             site.get("@name", "unknown"): site.get("alerts", [])
             for site in self.sites
@@ -17,7 +17,7 @@ class ZapSectionGenerator:
                 continue
 
             pdf.set_font("Arial", style="B", size=13)
-            pdf.cell(0, 10, f"{t['site']}: {site_name}", ln=True)
+            pdf.cell(0, 10, f"Site: {site_name}", ln=True)
             pdf.ln(2)
 
             for idx, alert in enumerate(alerts, 1):
